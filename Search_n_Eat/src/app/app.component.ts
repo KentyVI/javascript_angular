@@ -59,6 +59,14 @@ export class AppComponent {
     {
       this.fetchRestaurantsByCuisine();
     }
+    else if (this.location)
+    {
+      console.log("ici");
+      this.foursquareService.searchnearbyPlaces( this.location).subscribe(data => {
+        this.results = data.results;  // Assurez-vous que la structure correspond à l'API
+      });
+      
+    }
     else
     {
       this.foursquareService.searchnearbyplacesRandom().subscribe(data => {
@@ -75,7 +83,6 @@ export class AppComponent {
   fetchRestaurantsByCuisine() {
     if (this.selectedCuisines.size > 0) {
       const cuisinesArray = Array.from(this.selectedCuisines).join(',');
-      console.log(cuisinesArray);
       if (this.location)
       {
         this.foursquareService.searchPlaces(cuisinesArray, this.location).subscribe(data => {

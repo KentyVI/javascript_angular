@@ -15,7 +15,6 @@ export class FilterComponent {
   @Output() locationChange = new EventEmitter<string>();
   
   onLocationChange() {
-    console.log(this.location);
     this.locationChange.emit(this.location);
   }
 
@@ -64,7 +63,6 @@ toggleCuisine(cuisineName: string) {
   } else {
     this.activeCuisines.add(cuisineName);
   }
-  console.log(this.activeCuisines);
   this.cuisineChange.emit(this.activeCuisines);
 }
 

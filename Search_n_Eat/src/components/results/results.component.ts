@@ -37,7 +37,6 @@ export class ResultsComponent {
   
   getGoogleMapsLink(address: string): string {
     // Remplacez les espaces par des "+" pour Google Maps
-    console.log(address);
     const formattedAddress = address.split(' ').join('+');
     return `https://www.google.com/maps/search/?api=1&query=${formattedAddress}`;
   }

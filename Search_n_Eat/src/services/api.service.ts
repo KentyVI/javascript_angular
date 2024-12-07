@@ -32,10 +32,11 @@ export class FoursquareService {
       'accept': `application/json`
     };
     const params = {
-      query: query,
-      limit: '10'
+      query: 'restaurant',
+      limit: '10',
+      near: query
     };
-    return this.http.get(`${this.apiUrl}/nearby`, { headers, params });
+    return this.http.get(`${this.apiUrl}/search`, { headers, params });
   }
 
   searchneabybyCategories(category: string,limit : string): Observable<any> {
