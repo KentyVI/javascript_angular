@@ -1,0 +1,45 @@
+<div class="results-container" *ngIf="results.length > 0">
+  <div class="restaurant-card" *ngFor="let place of results">
+    <img *ngIf="place.photos && place.photos.length > 0"
+      [src]="place.photos[0].prefix + '200x200' + place.photos[0].suffix" alt="{{ place.name }}" />
+    <div class="restaurant-info">
+      <h4>{{ place.name }}</h4>
+      <p>{{ place.location.formatted_address }}</p>
+      <p>{{ place.distance / 1000 }} km</p>
+      <p *ngIf="place.rating">⭐ {{ place.rating }}</p>
+      <button (click)="onSelectPlace(place.fsq_id)">Voir détails</button>
+    </div>
+  </div>
+</div>
+
+<div class="details-popup" [class.open]="isPopupOpen">
+  <div class="popup-header">
+    <h3>Détails</h3>
+    <button class="close-button" (click)="closePopup()">&#10005;</button>
+  </div>
+  <div class="popup-content">
+    <p><strong>Nom :</strong> {{ placeDetails?.name }}</p>
+    <p *ngIf="placeDetails?.location">
+      <strong>Adresse :</strong>
+      <a
+        [href]="'https://www.google.com/maps/search/?api=1&query=' + placeDetails.location.formatted_address"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="map-link"
+      >
+      {{ placeDetails.location.formatted_address }}
+
+      <span class="material-icons" style="vertical-align: middle; margin-left: 5px;">
+        open_in_new
+      </span>      </a>
+    </p><!-- Slider -->
+    <div *ngIf="placePhotos.length > 0" class="slider">
+      <button class="slider-button prev" (click)="previousPhoto()">&#10094;</button>
+      <div class="slider-content">
+        <img [src]="placePhotos[currentPhotoIndex].prefix + '400x400' + placePhotos[currentPhotoIndex].suffix"
+          alt="Photo {{ currentPhotoIndex + 1 }}" class="slider-image" />
+      </div>
+      <button class="slider-button next" (click)="nextPhoto()">&#10095;</button>
+    </div>
+  </div>
+</div>

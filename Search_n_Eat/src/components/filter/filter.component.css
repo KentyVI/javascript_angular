@@ -1,0 +1,98 @@
+input {
+  padding: 10px;
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Conteneur pour centrer la barre "Entrez un lieu" */
+.location-input {
+  display: flex;
+  justify-content: center; /* Centre horizontalement */
+  margin: 20px 0; /* Espace autour de l'entrée */
+}
+
+.location-input input {
+  padding: 10px;
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center; /* Centre le texte dans le champ */
+}
+
+.cuisine-filters {
+  margin: 20px 0;
+  overflow-x: auto; /* Permet le défilement horizontal */
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  scrollbar-width: thin; /* Pour les navigateurs compatibles */
+  scrollbar-color: #ff6600 transparent;
+}
+
+.cuisine-filters::-webkit-scrollbar {
+  height: 8px; /* Hauteur de la barre de défilement */
+}
+
+.cuisine-filters::-webkit-scrollbar-thumb {
+  background-color: #ff6600; /* Couleur de la barre de défilement */
+  border-radius: 10px;
+}
+
+.cuisine-filters::-webkit-scrollbar-track {
+  background: transparent; /* Couleur de l'arrière-plan de la barre */
+}
+
+.cuisine-scroll {
+  display: flex;
+  gap: 15px; /* Espacement entre les éléments */
+}
+
+.cuisine-item {
+  display: inline-block;
+  flex-shrink: 0; /* Empêche la réduction de taille des éléments */
+  min-width: 80px; /* Largeur minimale pour chaque bouton */
+}
+
+.toggle-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 90px;
+}
+
+.toggle-button.active {
+  border-color: #ff6600;
+  background-color: #ff6600;
+  color: white;
+}
+
+.toggle-button:hover {
+  border-color: #ff4400;
+  background-color: #ff4400;
+  color: white;
+}
+
+.material-icons {
+  font-size: 36px;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.toggle-button.active .material-icons {
+  color: white;
+}

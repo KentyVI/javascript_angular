@@ -1,3 +1,14 @@
+<div class="header">
+  <div class="logo">
+    <span class="material-icons">restaurant</span> <!-- Icône de restaurant -->
+    <h1>Search n Eat</h1>
+  </div>
+</div>
 <app-search-bar (search)="onSearch($event)"></app-search-bar>
-<app-filter (locationChange)="onLocationChange($event)"></app-filter>
-<app-results [results]="results"></app-results>
+<app-filter (locationChange)="onLocationChange($event)" (cuisineChange)="onCuisineChange($event)"></app-filter>
+<app-results 
+  [results]="results" 
+  [placeDetails]="placeDetails" 
+  [placePhotos]="placePhotos"
+  (selectPlace)="onSelectPlace($event)">
+</app-results>
